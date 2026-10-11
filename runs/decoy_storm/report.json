@@ -1,0 +1,342 @@
+{
+  "mission": {
+    "name": "Decoy Storm",
+    "seed": 7,
+    "planner": "classical",
+    "outcome": "eve_located",
+    "outcome_text": "EVE located",
+    "steps": 187,
+    "time_used": 213,
+    "time_limit": 380,
+    "battery_left": 60.0,
+    "battery_used": 221.5,
+    "distance_travelled": 129,
+    "recharges": 13
+  },
+  "evidence": {
+    "initial_signal": {
+      "bearing_deg": null,
+      "coordinates": [
+        20,
+        9
+      ],
+      "uncertainty": 7.0,
+      "strength_dbm": null,
+      "timestamp": -120
+    },
+    "clues_read": [
+      {
+        "id": "clue-3",
+        "kind": "scorch_mark",
+        "position": [
+          18,
+          5
+        ],
+        "distance_estimate": 8.5,
+        "message": "Fresh blaster scorch. Plasma residue suggests the source is ~8 cells away."
+      },
+      {
+        "id": "clue-5",
+        "kind": "tracks",
+        "position": [
+          19,
+          7
+        ],
+        "bearing_deg": 307.8,
+        "message": "Hover-tracks scored into the dust, heading 308\u00b0."
+      }
+    ],
+    "clues_detected_unread": [],
+    "listens": 17,
+    "pings_heard": 46,
+    "suspicious_pings": 16,
+    "decoys_identified": [
+      {
+        "id": "decoy-1",
+        "position": [
+          27,
+          9
+        ]
+      },
+      {
+        "id": "decoy-2",
+        "position": [
+          17,
+          21
+        ]
+      }
+    ],
+    "eve_sighting": {
+      "type": "eve",
+      "position": [
+        11,
+        1
+      ],
+      "status": "damaged"
+    }
+  },
+  "inference": {
+    "location": [
+      11,
+      1
+    ],
+    "map_probability": 1.0,
+    "credible_region_90_cells": 1,
+    "status": "damaged",
+    "status_probabilities": {
+      "active": 0.0,
+      "dormant": 0.0,
+      "damaged": 1.0
+    },
+    "confidence": 0.99,
+    "confidence_text": "high: location confirmed visually; status 100% by posterior"
+  },
+  "recommended_next_step": "Move to EVE at (11, 1) (~2 battery) and stabilise her, avoid jostling the damaged plating, and tow her back for repairs; the round trip needs ~39 and WALL-E has 60.",
+  "strategy_changes": [
+    {
+      "from": "listen",
+      "to": "search",
+      "goal": [
+        16,
+        12
+      ],
+      "reason": "No scan yet; sweeping for clues on the way to (16, 12).",
+      "step": 2,
+      "tick": 2
+    },
+    {
+      "from": "listen",
+      "to": "search",
+      "goal": [
+        24,
+        12
+      ],
+      "reason": "Best value target (24, 12): 15% belief within scan range for 17.6 battery.",
+      "step": 28,
+      "tick": 28
+    },
+    {
+      "from": "search",
+      "to": "investigate",
+      "goal": [
+        18,
+        5
+      ],
+      "reason": "Standing on clue-3; inspecting it.",
+      "step": 49,
+      "tick": 49
+    },
+    {
+      "from": "investigate",
+      "to": "search",
+      "goal": [
+        25,
+        7
+      ],
+      "reason": "Best value target (25, 7): 37% belief within scan range for 11.1 battery.",
+      "step": 50,
+      "tick": 50
+    },
+    {
+      "from": "search",
+      "to": "recharge",
+      "goal": [
+        21,
+        14
+      ],
+      "reason": "Battery 20.5 barely covers the 11.1 needed to reach a charger plus 8 reserve; heading to recharge.",
+      "step": 63,
+      "tick": 63
+    },
+    {
+      "from": "listen",
+      "to": "recharge",
+      "goal": [
+        21,
+        14
+      ],
+      "reason": "Battery 16.5 barely covers the 6.9 needed to reach a charger plus 8 reserve; heading to recharge.",
+      "step": 67,
+      "tick": 67
+    },
+    {
+      "from": "recharge",
+      "to": "search",
+      "goal": [
+        21,
+        14
+      ],
+      "reason": "Best value target (21, 14): 0% belief within scan range for 3.0 battery.",
+      "step": 70,
+      "tick": 70
+    },
+    {
+      "from": "search",
+      "to": "recharge",
+      "goal": [
+        21,
+        14
+      ],
+      "reason": "Battery 10.5 barely covers the 2.0 needed to reach a charger plus 8 reserve; heading to recharge.",
+      "step": 72,
+      "tick": 72
+    },
+    {
+      "from": "recharge",
+      "to": "search",
+      "goal": [
+        27,
+        9
+      ],
+      "reason": "9 ticks since the last scan; sweeping for clues on the way to (27, 9).",
+      "step": 81,
+      "tick": 81
+    },
+    {
+      "from": "search",
+      "to": "search",
+      "goal": [
+        18,
+        20
+      ],
+      "reason": "Best value target (18, 20): 81% belief within scan range for 18.9 battery.",
+      "step": 93,
+      "tick": 93
+    },
+    {
+      "from": "listen",
+      "to": "search",
+      "goal": [
+        16,
+        5
+      ],
+      "reason": "Best value target (16, 5): 7% belief within scan range for 28.0 battery.",
+      "step": 116,
+      "tick": 116
+    },
+    {
+      "from": "search",
+      "to": "investigate",
+      "goal": [
+        19,
+        7
+      ],
+      "reason": "Scan revealed clue-5 at (19, 7); detouring 2.5 battery to read it before searching on.",
+      "step": 133,
+      "tick": 133
+    },
+    {
+      "from": "search",
+      "to": "recharge",
+      "goal": [
+        21,
+        14
+      ],
+      "reason": "Battery 21.5 barely covers the 11.5 needed to reach a charger plus 8 reserve; heading to recharge.",
+      "step": 140,
+      "tick": 140
+    },
+    {
+      "from": "listen",
+      "to": "search",
+      "goal": [
+        12,
+        1
+      ],
+      "reason": "14 ticks since the last scan; sweeping for clues on the way to (12, 1).",
+      "step": 154,
+      "tick": 154
+    }
+  ],
+  "ground_truth": {
+    "_note": "Evaluation only; never visible to the agent.",
+    "eve_position": [
+      11,
+      1
+    ],
+    "eve_status": "damaged",
+    "location_error_cells": 0.0,
+    "status_correct": true,
+    "decoys": [
+      {
+        "id": "decoy-1",
+        "position": [
+          27,
+          9
+        ]
+      },
+      {
+        "id": "decoy-2",
+        "position": [
+          17,
+          21
+        ]
+      }
+    ],
+    "clues": [
+      {
+        "id": "clue-1",
+        "kind": "tracks",
+        "position": [
+          5,
+          0
+        ],
+        "misleading": false
+      },
+      {
+        "id": "clue-2",
+        "kind": "log_fragment",
+        "position": [
+          10,
+          6
+        ],
+        "misleading": false
+      },
+      {
+        "id": "clue-3",
+        "kind": "scorch_mark",
+        "position": [
+          18,
+          5
+        ],
+        "misleading": false
+      },
+      {
+        "id": "clue-4",
+        "kind": "plant",
+        "position": [
+          11,
+          19
+        ],
+        "misleading": false
+      },
+      {
+        "id": "clue-5",
+        "kind": "tracks",
+        "position": [
+          19,
+          7
+        ],
+        "misleading": false
+      },
+      {
+        "id": "clue-6",
+        "kind": "log_fragment",
+        "position": [
+          7,
+          11
+        ],
+        "misleading": true
+      },
+      {
+        "id": "clue-7",
+        "kind": "scorch_mark",
+        "position": [
+          18,
+          3
+        ],
+        "misleading": false
+      }
+    ]
+  }
+}

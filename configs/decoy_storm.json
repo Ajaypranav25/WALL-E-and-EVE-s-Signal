@@ -1,0 +1,12 @@
+{
+  "name": "Decoy Storm",
+  "description": "Fog of war, two spoofing transmitters and a stale coordinate fix. EVE's status is unknown.",
+  "seed": 7,
+  "map": { "width": 30, "height": 22, "wall_density": 0.14, "rubble_density": 0.18, "known": false },
+  "initial_signal": { "coordinates": [20, 9], "uncertainty": 7, "timestamp": -120 },
+  "resources": { "battery_max": 100, "time_limit": 380, "reserve": 8 },
+  "sensors": { "bearing_noise_deg": 18, "strength_noise_db": 4.5 },
+  "clue_count": 7,
+  "misleading_rate": 0.15,
+  "decoy_count": 2
+}

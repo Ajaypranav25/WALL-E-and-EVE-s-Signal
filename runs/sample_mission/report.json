@@ -1,0 +1,218 @@
+{
+  "mission": {
+    "name": "Signal in the Dust",
+    "seed": 42,
+    "planner": "classical",
+    "outcome": "eve_located",
+    "outcome_text": "EVE located",
+    "steps": 94,
+    "time_used": 111,
+    "time_limit": 350,
+    "battery_left": 67.0,
+    "battery_used": 106.0,
+    "distance_travelled": 61,
+    "recharges": 6
+  },
+  "evidence": {
+    "initial_signal": {
+      "bearing_deg": 62.0,
+      "coordinates": null,
+      "uncertainty": 4.0,
+      "strength_dbm": -82.0,
+      "timestamp": -40
+    },
+    "clues_read": [
+      {
+        "id": "clue-3",
+        "kind": "scorch_mark",
+        "position": [
+          22,
+          2
+        ],
+        "distance_estimate": 23.6,
+        "message": "Fresh blaster scorch. Plasma residue suggests the source is ~24 cells away."
+      }
+    ],
+    "clues_detected_unread": [],
+    "listens": 9,
+    "pings_heard": 16,
+    "suspicious_pings": 4,
+    "decoys_identified": [
+      {
+        "id": "decoy-1",
+        "position": [
+          12,
+          4
+        ]
+      }
+    ],
+    "eve_sighting": {
+      "type": "eve",
+      "position": [
+        24,
+        6
+      ],
+      "status": "active"
+    }
+  },
+  "inference": {
+    "location": [
+      24,
+      6
+    ],
+    "map_probability": 1.0,
+    "credible_region_90_cells": 1,
+    "status": "dormant",
+    "status_probabilities": {
+      "active": 0.0,
+      "dormant": 1.0,
+      "damaged": 0.0
+    },
+    "confidence": 0.99,
+    "confidence_text": "high: location confirmed visually; status 100% by posterior"
+  },
+  "recommended_next_step": "Move to EVE at (24, 6) (~4 battery) and wake her with a close-range beacon pulse, then tow her back to recharge; the round trip needs ~24 and WALL-E has 67.",
+  "strategy_changes": [
+    {
+      "from": "listen",
+      "to": "search",
+      "goal": [
+        10,
+        13
+      ],
+      "reason": "No scan yet; sweeping for clues on the way to (10, 13).",
+      "step": 2,
+      "tick": 2
+    },
+    {
+      "from": "search",
+      "to": "search",
+      "goal": [
+        26,
+        5
+      ],
+      "reason": "Best value target (26, 5): 38% belief within scan range for 25.0 battery.",
+      "step": 36,
+      "tick": 36
+    },
+    {
+      "from": "search",
+      "to": "investigate",
+      "goal": [
+        22,
+        2
+      ],
+      "reason": "Scan revealed clue-3 at (22, 2); detouring 3.5 battery to read it before searching on.",
+      "step": 63,
+      "tick": 63
+    },
+    {
+      "from": "investigate",
+      "to": "search",
+      "goal": [
+        22,
+        2
+      ],
+      "reason": "Reached target (22, 2); scanning.",
+      "step": 66,
+      "tick": 66
+    },
+    {
+      "from": "search",
+      "to": "recharge",
+      "goal": [
+        20,
+        3
+      ],
+      "reason": "Battery 9.0 barely covers the 2.0 needed to reach a charger plus 6 reserve; heading to recharge.",
+      "step": 69,
+      "tick": 69
+    },
+    {
+      "from": "recharge",
+      "to": "search",
+      "goal": [
+        25,
+        5
+      ],
+      "reason": "8 ticks since the last scan; sweeping for clues on the way to (25, 5).",
+      "step": 77,
+      "tick": 77
+    }
+  ],
+  "ground_truth": {
+    "_note": "Evaluation only; never visible to the agent.",
+    "eve_position": [
+      24,
+      6
+    ],
+    "eve_status": "dormant",
+    "location_error_cells": 0.0,
+    "status_correct": true,
+    "decoys": [
+      {
+        "id": "decoy-1",
+        "position": [
+          12,
+          4
+        ]
+      }
+    ],
+    "clues": [
+      {
+        "id": "clue-1",
+        "kind": "tracks",
+        "position": [
+          16,
+          12
+        ],
+        "misleading": false
+      },
+      {
+        "id": "clue-2",
+        "kind": "log_fragment",
+        "position": [
+          17,
+          18
+        ],
+        "misleading": false
+      },
+      {
+        "id": "clue-3",
+        "kind": "scorch_mark",
+        "position": [
+          22,
+          2
+        ],
+        "misleading": true
+      },
+      {
+        "id": "clue-4",
+        "kind": "plant",
+        "position": [
+          10,
+          10
+        ],
+        "misleading": false
+      },
+      {
+        "id": "clue-5",
+        "kind": "tracks",
+        "position": [
+          27,
+          12
+        ],
+        "misleading": false
+      },
+      {
+        "id": "clue-6",
+        "kind": "log_fragment",
+        "position": [
+          8,
+          8
+        ],
+        "misleading": false
+      }
+    ]
+  }
+}

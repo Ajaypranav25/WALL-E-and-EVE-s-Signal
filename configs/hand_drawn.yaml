@@ -1,0 +1,29 @@
+# Explicit ASCII layout: '.' open ground, '#' wall, '~' rubble (costs more battery).
+name: Hand-drawn Junkyard
+description: A small hand-authored map with fixed clue placement, useful for reading the trace step by step.
+seed: 3
+map:
+  layout:
+    - "....................."
+    - ".####.......~~~......"
+    - ".#..........~~~..###."
+    - ".#..####.........#..."
+    - "......#....##....#..."
+    - "..~~..#....##........"
+    - "..~~.......##..####.."
+    - "...........~~........"
+    - ".####......~~....#..."
+    - "................##..."
+    - ".....~~~............."
+    - "....................."
+start: [0, 11]
+chargers: [[0, 11], [19, 0]]
+eve: { position: [18, 4], status: damaged }
+initial_signal: { bearing_deg: 50, strength_dbm: -70, timestamp: -10 }
+resources: { battery_max: 60, time_limit: 220 }
+clues:
+  - { kind: tracks, position: [8, 9] }
+  - { kind: log_fragment, position: [13, 8] }
+  - { kind: scorch_mark, position: [15, 3] }
+  - { kind: plant, position: [10, 2] }
+  - { kind: tracks, position: [4, 4], misleading: true }

@@ -1,0 +1,193 @@
+{
+  "mission": {
+    "name": "Hand-drawn Junkyard",
+    "seed": 3,
+    "planner": "classical",
+    "outcome": "eve_located",
+    "outcome_text": "EVE located",
+    "steps": 57,
+    "time_used": 67,
+    "time_limit": 220,
+    "battery_left": 51.0,
+    "battery_used": 62.5,
+    "distance_travelled": 35,
+    "recharges": 4
+  },
+  "evidence": {
+    "initial_signal": {
+      "bearing_deg": 50.0,
+      "coordinates": null,
+      "uncertainty": 4.0,
+      "strength_dbm": -70.0,
+      "timestamp": -10
+    },
+    "clues_read": [
+      {
+        "id": "clue-3",
+        "kind": "scorch_mark",
+        "position": [
+          15,
+          3
+        ],
+        "distance_estimate": 3.2,
+        "message": "Fresh blaster scorch. Plasma residue suggests the source is ~3 cells away."
+      }
+    ],
+    "clues_detected_unread": [],
+    "listens": 7,
+    "pings_heard": 3,
+    "suspicious_pings": 0,
+    "decoys_identified": [],
+    "eve_sighting": {
+      "type": "eve",
+      "position": [
+        18,
+        4
+      ],
+      "status": "damaged"
+    }
+  },
+  "inference": {
+    "location": [
+      18,
+      4
+    ],
+    "map_probability": 1.0,
+    "credible_region_90_cells": 1,
+    "status": "damaged",
+    "status_probabilities": {
+      "active": 0.0,
+      "dormant": 0.0,
+      "damaged": 1.0
+    },
+    "confidence": 0.99,
+    "confidence_text": "high: location confirmed visually; status 100% by posterior"
+  },
+  "recommended_next_step": "Move to EVE at (18, 4) (~2 battery) and stabilise her, avoid jostling the damaged plating, and tow her back for repairs; the round trip needs ~15 and WALL-E has 51.",
+  "strategy_changes": [
+    {
+      "from": "listen",
+      "to": "search",
+      "goal": [
+        9,
+        7
+      ],
+      "reason": "No scan yet; sweeping for clues on the way to (9, 7).",
+      "step": 2,
+      "tick": 2
+    },
+    {
+      "from": "listen",
+      "to": "search",
+      "goal": [
+        15,
+        3
+      ],
+      "reason": "Best value target (15, 3): 19% belief within scan range for 15.0 battery.",
+      "step": 14,
+      "tick": 14
+    },
+    {
+      "from": "listen",
+      "to": "search",
+      "goal": [
+        19,
+        1
+      ],
+      "reason": "9 ticks since the last scan; sweeping for clues on the way to (19, 1).",
+      "step": 21,
+      "tick": 21
+    },
+    {
+      "from": "search",
+      "to": "investigate",
+      "goal": [
+        15,
+        3
+      ],
+      "reason": "Scan revealed clue-3 at (15, 3); detouring 2.0 battery to read it before searching on.",
+      "step": 31,
+      "tick": 31
+    },
+    {
+      "from": "search",
+      "to": "recharge",
+      "goal": [
+        19,
+        0
+      ],
+      "reason": "Battery 6.5 is below a safe margin; recharging at (19, 0).",
+      "step": 47,
+      "tick": 47
+    },
+    {
+      "from": "recharge",
+      "to": "search",
+      "goal": [
+        19,
+        4
+      ],
+      "reason": "Best value target (19, 4): 91% belief within scan range for 6.0 battery.",
+      "step": 51,
+      "tick": 51
+    }
+  ],
+  "ground_truth": {
+    "_note": "Evaluation only; never visible to the agent.",
+    "eve_position": [
+      18,
+      4
+    ],
+    "eve_status": "damaged",
+    "location_error_cells": 0.0,
+    "status_correct": true,
+    "decoys": [],
+    "clues": [
+      {
+        "id": "clue-1",
+        "kind": "tracks",
+        "position": [
+          8,
+          9
+        ],
+        "misleading": false
+      },
+      {
+        "id": "clue-2",
+        "kind": "log_fragment",
+        "position": [
+          13,
+          8
+        ],
+        "misleading": false
+      },
+      {
+        "id": "clue-3",
+        "kind": "scorch_mark",
+        "position": [
+          15,
+          3
+        ],
+        "misleading": false
+      },
+      {
+        "id": "clue-4",
+        "kind": "plant",
+        "position": [
+          10,
+          2
+        ],
+        "misleading": false
+      },
+      {
+        "id": "clue-5",
+        "kind": "tracks",
+        "position": [
+          4,
+          4
+        ],
+        "misleading": true
+      }
+    ]
+  }
+}

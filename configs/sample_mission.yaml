@@ -1,0 +1,45 @@
+# Sample mission: a surveyed 28x20 wasteland, one decoy, six clues.
+# Anything omitted (wall layout, clue placement, decoy power) is generated from `seed`.
+name: Signal in the Dust
+description: >
+  EVE went quiet somewhere east of the base after a dust storm. A decoy
+  transmitter left over from BnL's old relay network spoofs her beacon.
+seed: 42
+map:
+  width: 28
+  height: 20
+  wall_density: 0.12
+  rubble_density: 0.16
+  known: true           # WALL-E has a terrain survey; set false for fog of war
+start: [1, 18]
+chargers: [[1, 18], [20, 3]]
+eve:
+  position: [24, 6]
+  status: dormant
+initial_signal:
+  bearing_deg: 62       # degrees clockwise from north, measured from start
+  strength_dbm: -82
+  timestamp: -40        # ticks before mission start; older readings are trusted less
+resources:
+  battery_max: 90
+  time_limit: 350
+  reserve: 6
+costs:
+  move: 1.0
+  rubble_move: 2.5
+  scan: 2.0
+  listen: 1.0
+  inspect: 0.5
+  recharge_rate: 15
+sensors:
+  scan_radius: 2
+  eve_detect_prob: 0.9
+  clue_detect_prob: 0.85
+  bearing_noise_deg: 14
+  strength_noise_db: 3.5
+  sensitivity_dbm: -92
+clue_count: 6
+misleading_rate: 0.1
+decoys:
+  - position: [12, 4]
+    power_dbm: -36
