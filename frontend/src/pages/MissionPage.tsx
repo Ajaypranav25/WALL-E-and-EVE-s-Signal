@@ -131,7 +131,7 @@ export default function MissionPage() {
           {run && rec ? (
             <>
               <GridMap run={run} step={step} layers={layers} />
-              <Timeline step={step} total={run.steps.length} tick={rec.tick} playing={playing} speed={speed} marks={marks} onStep={setStep} onPlaying={onPlaying} onSpeed={setSpeed} />
+              <Timeline step={step} total={run.steps.length} time={rec.observation.time_used} timeLimit={run.world.time_limit} playing={playing} speed={speed} marks={marks} onStep={setStep} onPlaying={onPlaying} onSpeed={setSpeed} />
             </>
           ) : (
             <div className="map-empty">{loading ? "Loading mission…" : "No mission loaded."}</div>

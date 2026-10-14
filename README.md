@@ -10,10 +10,11 @@ An autonomous agent that explores a simulated wasteland, gathers clues and ratio
 - **Visualizer**: a black, liquid-glass landing page plus a React mission-replay app (path, clues, decoys, belief heatmap, signal bearings, strategy changes), an ASCII map in the CLI, and a benchmark across random missions
 
 ```
-backend/    Python package `signal_agent` (simulator, agent, CLI, FastAPI)
-configs/    sample mission configs (YAML + JSON)
-runs/       committed sample outputs: traces, reports, ASCII maps, benchmark
-frontend/   Vite + React visualizer and the landing page
+backend/          Python package `signal_agent` (simulator, agent, CLI, FastAPI)
+backend/configs/  sample mission configs (YAML + JSON)
+runs/             committed sample outputs: traces, reports, ASCII maps, benchmark
+frontend/         Vite + React visualizer and the landing page
+vercel.json       Vercel services config (frontend + FastAPI backend)
 ```
 
 ## Quick start
@@ -22,9 +23,9 @@ frontend/   Vite + React visualizer and the landing page
 # backend (Python 3.11+)
 cd backend
 pip install -e ".[dev,llm]"
-walle run ../configs/sample_mission.yaml --ascii        # writes runs/sample_mission/*
+walle run configs/sample_mission.yaml --out ../runs/sample_mission --ascii
 walle bench --n 100 --planners classical,greedy         # generalisation benchmark
-walle validate ../configs/decoy_storm.json              # check a config
+walle validate configs/decoy_storm.json                 # check a config
 walle serve                                             # API on http://127.0.0.1:8000
 python -m pytest --cov                                  # 98 tests, ~97% coverage
 
@@ -37,6 +38,19 @@ npm run build      # static site in frontend/dist
 ```
 
 The visualizer works without the backend: it ships the recorded sample runs and benchmark (`npm run samples` copies them from `runs/`). With `walle serve` running, it can launch new missions and benchmarks live.
+
+## Deploy on Vercel
+
+The repo deploys as one Vercel project with two [services](https://vercel.com/docs/services), defined in `vercel.json`:
+
+| Service | Root | Framework | Public path |
+|---|---|---|---|
+| `backend` | `backend/` | FastAPI (`signal_agent.api:app`) | `/api/*` |
+| `frontend` | `frontend/` | Vite (static) | everything else |
+
+The backend receives the full path (`/api/health`), which matches its routes. The browser calls the API on the same origin, so no service-to-service bindings are needed. Run both together locally with `vercel dev`.
+
+Notes for serverless: the run cache (`/api/runs/{id}`) and rate limits are per instance; the Claude planner stays off unless `SIGNAL_API_ALLOW_LLM=1` and `ANTHROPIC_API_KEY` are set as project environment variables (and `anthropic` is added to the backend dependencies). The frontend ships the recorded sample runs in `frontend/public/samples/`, so it still works if the API is unavailable.
 
 ## Environment design
 
@@ -80,7 +94,7 @@ A mission ends when EVE is sighted (`eve_located`), the battery runs dry (`stran
 
 ## Config format
 
-Configs are YAML or JSON and validated with Pydantic (unknown keys are rejected). Anything omitted is generated deterministically from `seed`. See [`configs/`](configs/) for three complete examples, including a hand-drawn ASCII layout.
+Configs are YAML or JSON and validated with Pydantic (unknown keys are rejected). Anything omitted is generated deterministically from `seed`. See [`backend/configs/`](backend/configs/) for three complete examples, including a hand-drawn ASCII layout.
 
 ```yaml
 name: Signal in the Dust
@@ -159,7 +173,7 @@ The LLM planner can be added with `--planners classical,greedy,llm` (needs an AP
 | GET | `/api/runs/{id}` | last 20 runs are kept in memory |
 | POST | `/api/benchmark` | `{"n": 20, "seed": 0, "planners": ["classical", "greedy"]}` (n ≤ 100) |
 
-POST endpoints are rate limited per client and at most two missions/benchmarks run at once. Inline configs sent to the API are capped at 40x40 maps and `time_limit` 1000 (the CLI has no such cap). The Claude planner spends the server's API key, so it is off on the API unless `SIGNAL_API_ALLOW_LLM=1` is set. Config names are restricted to `[A-Za-z0-9_-]` and resolved inside `configs/` (override with `SIGNAL_CONFIG_DIR`).
+POST endpoints are rate limited per client and at most two missions/benchmarks run at once. Inline configs sent to the API are capped at 40x40 maps and `time_limit` 1000 (the CLI has no such cap). The Claude planner spends the server's API key, so it is off on the API unless `SIGNAL_API_ALLOW_LLM=1` is set. Config names are restricted to `[A-Za-z0-9_-]` and resolved inside `backend/configs/` (override with `SIGNAL_CONFIG_DIR`).
 
 ## Landing page
 

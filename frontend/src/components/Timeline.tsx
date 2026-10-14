@@ -6,7 +6,8 @@ const BASE_INTERVAL_MS = 320;
 interface Props {
   step: number;
   total: number;
-  tick: number;
+  time: number;
+  timeLimit: number;
   playing: boolean;
   speed: number;
   marks: number[];
@@ -15,7 +16,7 @@ interface Props {
   onSpeed: (s: number) => void;
 }
 
-export function Timeline({ step, total, tick, playing, speed, marks, onStep, onPlaying, onSpeed }: Props) {
+export function Timeline({ step, total, time, timeLimit, playing, speed, marks, onStep, onPlaying, onSpeed }: Props) {
   const last = total - 1;
 
   useEffect(() => {
@@ -88,7 +89,7 @@ export function Timeline({ step, total, tick, playing, speed, marks, onStep, onP
         </div>
       </div>
       <p className="timeline-meta">
-        Step <strong>{step}</strong> / {last} · tick {tick}
+        Step <strong>{step}</strong> / {last} · mission time {time} / {timeLimit}
         <span className="hint"> · Space plays, ← → step</span>
       </p>
     </div>

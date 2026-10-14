@@ -116,7 +116,7 @@ function Report({ run, showTruth, onTruth }: { run: RunBundle; showTruth: boolea
             <ol className="timeline-list">
               {run.report.strategy_changes.map((c) => (
                 <li key={c.step}>
-                  <span className="mono">t={c.tick}</span>
+                  <span className="mono">step {c.step}</span>
                   <div>
                     <strong>
                       {c.from} → {c.to}

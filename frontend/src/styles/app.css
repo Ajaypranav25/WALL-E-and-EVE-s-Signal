@@ -183,7 +183,7 @@
 .ev-kind.decoy { background: rgba(230, 103, 103, 0.18); }
 .ev-kind.eve { background: rgba(186, 208, 255, 0.18); }
 .timeline-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-.timeline-list li { display: grid; grid-template-columns: 54px 1fr; gap: 10px; font-size: 13px; }
+.timeline-list li { display: grid; grid-template-columns: 64px 1fr; gap: 10px; font-size: 13px; }
 .timeline-list p { color: var(--muted); margin-top: 2px; }
 .truth { margin-top: 18px; }
 .truth-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 8px; }

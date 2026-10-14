@@ -23,12 +23,12 @@ Move to EVE at (18, 4) (~2 battery) and stabilise her, avoid jostling the damage
 
 ## Strategy changes
 
-- t=2 listen → search: No scan yet; sweeping for clues on the way to (9, 7).
-- t=14 listen → search: Best value target (15, 3): 19% belief within scan range for 15.0 battery.
-- t=21 listen → search: 9 ticks since the last scan; sweeping for clues on the way to (19, 1).
-- t=31 search → investigate: Scan revealed clue-3 at (15, 3); detouring 2.0 battery to read it before searching on.
-- t=47 search → recharge: Battery 6.5 is below a safe margin; recharging at (19, 0).
-- t=51 recharge → search: Best value target (19, 4): 91% belief within scan range for 6.0 battery.
+- step 2: listen → search: No scan yet; sweeping for clues on the way to (9, 7).
+- step 14: listen → search: Best value target (15, 3): 19% belief within scan range for 15.0 battery.
+- step 21: listen → search: 9 ticks since the last scan; sweeping for clues on the way to (19, 1).
+- step 31: search → investigate: Scan revealed clue-3 at (15, 3); detouring 2.0 battery to read it before searching on.
+- step 47: search → recharge: Battery 6.5 is below a safe margin; recharging at (19, 0).
+- step 51: recharge → search: Best value target (19, 4): 91% belief within scan range for 6.0 battery.
 
 ## Ground truth (evaluation only)
 

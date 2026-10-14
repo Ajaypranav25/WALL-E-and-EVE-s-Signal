@@ -25,12 +25,12 @@ Move to EVE at (24, 6) (~4 battery) and wake her with a close-range beacon pulse
 
 ## Strategy changes
 
-- t=2 listen → search: No scan yet; sweeping for clues on the way to (10, 13).
-- t=36 search → search: Best value target (26, 5): 38% belief within scan range for 25.0 battery.
-- t=63 search → investigate: Scan revealed clue-3 at (22, 2); detouring 3.5 battery to read it before searching on.
-- t=66 investigate → search: Reached target (22, 2); scanning.
-- t=69 search → recharge: Battery 9.0 barely covers the 2.0 needed to reach a charger plus 6 reserve; heading to recharge.
-- t=77 recharge → search: 8 ticks since the last scan; sweeping for clues on the way to (25, 5).
+- step 2: listen → search: No scan yet; sweeping for clues on the way to (10, 13).
+- step 36: search → search: Best value target (26, 5): 38% belief within scan range for 25.0 battery.
+- step 63: search → investigate: Scan revealed clue-3 at (22, 2); detouring 3.5 battery to read it before searching on.
+- step 66: investigate → search: Reached target (22, 2); scanning.
+- step 69: search → recharge: Battery 9.0 barely covers the 2.0 needed to reach a charger plus 6 reserve; heading to recharge.
+- step 77: recharge → search: 8 ticks since the last scan; sweeping for clues on the way to (25, 5).
 
 ## Ground truth (evaluation only)
 

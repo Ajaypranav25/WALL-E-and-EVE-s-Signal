@@ -34,7 +34,8 @@ PlannerName = Literal["classical", "greedy", "llm"]
 
 def default_config_dir() -> Path:
     env = os.environ.get("SIGNAL_CONFIG_DIR")
-    return Path(env) if env else Path(__file__).resolve().parents[2] / "configs"
+    # Configs live inside the backend so they ship in its deployment bundle.
+    return Path(env) if env else Path(__file__).resolve().parents[1] / "configs"
 
 
 class RateLimiter:
@@ -168,7 +169,7 @@ def create_app(config_dir: Path | None = None) -> FastAPI:
         elif req.config_name:
             cfg = load_named(req.config_name)
         else:
-            cfg = MissionConfig(name="random mission", seed=req.seed or 0, decoy_count=1)
+            cfg = MissionConfig(name="Random mission", seed=req.seed or 0, decoy_count=1)
         if req.seed is not None and req.config_name:
             cfg = cfg.model_copy(update={"seed": req.seed})
         check_api_limits(cfg)

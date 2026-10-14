@@ -157,7 +157,7 @@ def render_markdown(report: dict[str, Any]) -> str:
     if not report["strategy_changes"]:
         lines.append("- None")
     for ch in report["strategy_changes"]:
-        lines.append(f"- t={ch['tick']} {ch['from']} → {ch['to']}: {ch['reason']}")
+        lines.append(f"- step {ch['step']}: {ch['from']} → {ch['to']}: {ch['reason']}")
     lines += [
         "",
         "## Ground truth (evaluation only)",

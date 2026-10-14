@@ -102,7 +102,7 @@ export function StepPanel({ run, rec, onJump }: { run: RunBundle; rec: StepRecor
           {changes.map((c) => (
             <li key={c.step} className={c.step <= rec.step ? "past" : ""}>
               <button type="button" onClick={() => onJump(c.step)}>
-                <span className="mono">t={c.tick}</span> {c.from} → <strong>{c.to}</strong>
+                <span className="mono">step {c.step}</span> {c.from} → <strong>{c.to}</strong>
                 <span className="change-reason">{c.reason}</span>
               </button>
             </li>

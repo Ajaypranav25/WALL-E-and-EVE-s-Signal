@@ -18,7 +18,7 @@ LAYOUT = [
     "............",
 ]
 
-REPO = Path(__file__).resolve().parents[2]
+BACKEND = Path(__file__).resolve().parents[1]
 
 
 @pytest.fixture
@@ -40,4 +40,4 @@ def small_config() -> MissionConfig:
 
 @pytest.fixture
 def config_dir() -> Path:
-    return REPO / "configs"
+    return BACKEND / "configs"

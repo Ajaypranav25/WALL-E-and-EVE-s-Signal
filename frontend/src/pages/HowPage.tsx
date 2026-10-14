@@ -32,9 +32,10 @@ decoys: [{ position: [12, 4], power_dbm: -36 }]   # or decoy_count: 2`;
 const RUN = `# backend
 cd backend
 pip install -e ".[dev,llm]"
-walle run ../configs/sample_mission.yaml --ascii      # trace + report in runs/sample_mission
+walle run configs/sample_mission.yaml --out ../runs/sample_mission --ascii
 walle bench --n 100 --planners classical,greedy       # generalisation benchmark
 walle serve                                           # API on :8000
+SIGNAL_API_ALLOW_LLM=1 walle serve                    # also allow the Claude planner
 
 # frontend
 cd frontend && npm install && npm run dev             # http://localhost:5173`;
